@@ -6,287 +6,223 @@
     <title>Фитнес-клуб SportArea</title>
     <meta name="description" content="Поменяйте описание">
     <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/footer_style.css">
 </head>
 
 <body>
-    <div class="left-bar">
-        <a href="#" id="left-bar__logo-link">
-            <div class="left-bar__logo">
-                <img src="/images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
-            </div>
-        </a>
-        <button class="button-call" id="callUsButton">ПОЗВОНИТЬ НАМ</button>
-        <div class="form-container" id="form-container">
-            <div id="callbackForm" class="callback-popup">
-                <!-- Кнопка закрытия -->
-                <div class="close-btn" id="close-btn">
-                    <!-- SVG крестика -->
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M2 17.75L0.25 16L7.25 9L0.25 2L2 0.25L9 7.25L16 0.25L17.75 2L10.75 9L17.75 16L16 17.75L9 10.75L2 17.75Z"
-                            fill="#333333" />
-                    </svg>
-                </div>
-                <div class="callback-popup__content">
-                    <button id="closeForm" class="callback-popup__close">&times;</button>
-                    <h3>Заполнив форму, наш менеджер свяжется с Вами для подробной информации об абонементах и
-                        спорт-клубе</h3>
-                        <form id="callbackFormContent" class="callback-form" action="/" method="post">
-                        <label for="fio">ФИО:</label>
-                        <input type="text" id="fio" name="fio" required>
-
-                        <label for="phone">Телефон:</label>
-                        <input type="tel" id="phone" name="phone" required>
-
-                        <label for="comment">Комментарий:</label>
-                        <textarea id="comment" name="comment" rows="4"></textarea>
-
-                        <button type="submit" class="submit-button">ЗАКАЗАТЬ ЗВОНОК</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script nonce="<%= nonce %>">
-        document.addEventListener("DOMContentLoaded", function () {
-    const callUsButton = document.getElementById("callUsButton");
-    const callbackForm = document.getElementById("callbackForm");
-    const closeFormButton = document.getElementById("closeForm");
-
-    // Открытие формы при клике на кнопку "ПОЗВОНИТЬ НАМ"
-    callUsButton.addEventListener("click", function () {
-        callbackForm.style.display = "flex";
-    });
-
-    // Закрытие формы при клике на крестик
-    closeFormButton.addEventListener("click", function () {
-        callbackForm.style.display = "none";
-    });
-
-    // Закрытие формы при клике за пределами окна
-    window.addEventListener("click", function (event) {
-        if (event.target === callbackForm) {
-            callbackForm.style.display = "none";
-        }
-    });
-
-    // Закрытие формы при отправке данных (например, если форма отправляется)
-    callbackFormContent.addEventListener("submit", function (event) {
-    //event.preventDefault();  // Остановить отправку формы для демонстрации
-    // Закрытие формы после отправки
-    callbackForm.style.display = "none";
-    });
-
-    // Обработчик события mousedown для всего документа
-    document.addEventListener("mousedown", function (event) {
-        // Проверяем, находится ли клик внутри формы
-        if (!callbackForm.contains(event.target)) {
-            callbackForm.style.display = "none";
-        }
-    });
-});
-    </script>
+    <%- include('partials/left_bar') %>
 
     <%- include('partials/header') %>
 
-    <section class="first-screen">
-        <div class="carousel-images">
-            <img src="/images/dist/first-screen_background/Background_main1.jpg" alt="Background 1" class="active">
-            <img src="/images/dist/first-screen_background/Background_main2.jpg" alt="Background 2">
-            <img src="/images/dist/first-screen_background/Background_main3.jpg" alt="Background 3">
-        </div>
-        <div class="carousel-overlay"></div>
-        <h1 class="first-screen__heading">ФИТНЕС-КЛУБ SPORTAREA</h1>
-        <ul class="first-screen__list">
-            <li class="first-screen__item">Самая современная система очистки бассейна</li>
-            <li class="first-screen__item">Тренеры с опытом работы более 10 лет</li>
-            <li class="first-screen__item">6 тренажерных залов и спа зона </li>
-        </ul>
-        <a href="#" class="button-detail">Подробнее</a>
-    </section>
+            <section class="first-screen">
+                <div class="carousel-images">
+                    <img src="/images/dist/first-screen_background/Background_main1.jpg" alt="Background 1"
+                        class="active">
+                    <img src="/images/dist/first-screen_background/Background_main2.jpg" alt="Background 2">
+                    <img src="/images/dist/first-screen_background/Background_main3.jpg" alt="Background 3">
+                </div>
+                <div class="carousel-overlay"></div>
+                <h1 class="first-screen__heading">ФИТНЕС-КЛУБ SPORTAREA</h1>
+                <ul class="first-screen__list">
+                    <li class="first-screen__item">Самая современная система очистки бассейна</li>
+                    <li class="first-screen__item">Тренеры с опытом работы более 10 лет</li>
+                    <li class="first-screen__item">6 тренажерных залов и спа зона </li>
+                </ul>
+                <a href="#" class="button-detail">Подробнее</a>
+            </section>
 
-    <script nonce="<%= nonce %>">
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel-images img');
-        const totalImages = images.length;
+            <script nonce="<%= nonce %>">
+                let currentIndex = 0;
+                const images = document.querySelectorAll('.carousel-images img');
+                const totalImages = images.length;
 
-        function switchImage() {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % totalImages;
-            images[currentIndex].classList.add('active');
-        }
+                function switchImage() {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    images[currentIndex].classList.add('active');
+                }
 
-        setInterval(switchImage, 4000); // Смена изображений каждые 3 секунды
-    </script>
+                setInterval(switchImage, 4000); // Смена изображений каждые 3 секунды
+            </script>
 
-    <script nonce="<%= nonce %>">
-        // Убедимся, что DOM загружен
-        document.addEventListener("DOMContentLoaded", function () {
-            const logoLink = document.getElementById('left-bar__logo-link');
+            <script nonce="<%= nonce %>">
+                // Убедимся, что DOM загружен
+                document.addEventListener("DOMContentLoaded", function () {
+                    const logoLink = document.getElementById('left-bar__logo-link');
 
-            // Добавляем обработчик клика на логотип
-            logoLink.addEventListener('click', function (e) {
-                e.preventDefault(); // Отменить переход по ссылке
+                    // Добавляем обработчик клика на логотип
+                    logoLink.addEventListener('click', function (e) {
+                        e.preventDefault(); // Отменить переход по ссылке
 
-                // Плавно прокручиваем на верх страницы с помощью scrollIntoView
-                document.documentElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                        // Плавно прокручиваем на верх страницы с помощью scrollIntoView
+                        document.documentElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
                 });
-            });
-        });
-    </script>
+            </script>
 
-    <section class="about">
-        <h2 class="about__heading">SPORTAREA</h3>
-            <p class="about__lead">Семейный фитнес-клуб SportArea — лучшее решение на рынке спортивных комплексов.</p>
-            <p class="about__paragraph">Фитнес-центр "SportArea" — это обновленный и на сегодняшний день самый крупный
-                фитнес-центр в Казани.
-                В просторы клуба площадью более 10 000 м² входят комплекс услуг: просторный тренажерный зал, кардиозал с
-                панорамным остеклением,
-                зал функционального тренинга, сайкл-студия, зал персонального тренинга, релакс-зона, школа танцев,
-                уникальный зал единоборств.</p>
-            <p class="about__paragraph">Приветливый персонал, внимательные, профессионально обученные инструкторы.
-                Проблемы со спиной или суставами?
-                После посещения всё будет в порядке! Эффективные групповые программы регулярно обновляются. Повторные
-                фитнес-тестирования
-                покажут улучшение большинства показателей физической подготовленности организма. Сердце станет более
-                выносливым.</p>
-    </section>
+            <section class="about">
+                <h2 class="about__heading">SPORTAREA</h3>
+                    <p class="about__lead">Семейный фитнес-клуб SportArea — лучшее решение на рынке спортивных
+                        комплексов.</p>
+                    <p class="about__paragraph">Фитнес-центр "SportArea" — это обновленный и на сегодняшний день самый
+                        крупный
+                        фитнес-центр в Казани.
+                        В просторы клуба площадью более 10 000 м² входят комплекс услуг: просторный тренажерный зал,
+                        кардиозал с
+                        панорамным остеклением,
+                        зал функционального тренинга, сайкл-студия, зал персонального тренинга, релакс-зона, школа
+                        танцев,
+                        уникальный зал единоборств.</p>
+                    <p class="about__paragraph">Приветливый персонал, внимательные, профессионально обученные
+                        инструкторы.
+                        Проблемы со спиной или суставами?
+                        После посещения всё будет в порядке! Эффективные групповые программы регулярно обновляются.
+                        Повторные
+                        фитнес-тестирования
+                        покажут улучшение большинства показателей физической подготовленности организма. Сердце станет
+                        более
+                        выносливым.</p>
+            </section>
 
-    <section class="category">
-        <h2 class="category__heading">Водные сооружения</h2>
-        <ul class="category__list">
-            <li class="category__item">
-                <img src="/images/dist/categories/Category01.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Бассейн для водного поло</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Ежедневная очистка бассейна</li>
-                    <li class="category__sub-item">– Современный инвентарь</li>
-                    <li class="category__sub-item">– Командные турниры</li>
+            <section class="category">
+                <h2 class="category__heading">Водные сооружения</h2>
+                <ul class="category__list">
+                    <li class="category__item">
+                        <img src="/images/dist/categories/Category01.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Бассейн для водного поло</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Ежедневная очистка бассейна</li>
+                            <li class="category__sub-item">– Современный инвентарь</li>
+                            <li class="category__sub-item">– Командные турниры</li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="/images/dist/categories/Category02.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Малый бассейн для занятий</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Секция для беременных</li>
+                            <li class="category__sub-item">– Детская секция от 8 лет</li>
+                            <li class="category__sub-item">– Танцевальная аквааэробика</li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category03.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Большой бассейн для плавания</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Дорожка спортивного плавания</li>
+                            <li class="category__sub-item">– Индивидуальные занятия</li>
+                            <li class="category__sub-item">– Глубина до 2 метров</li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li class="category__item">
-                <img src="/images/dist/categories/Category02.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Малый бассейн для занятий</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Секция для беременных</li>
-                    <li class="category__sub-item">– Детская секция от 8 лет</li>
-                    <li class="category__sub-item">– Танцевальная аквааэробика</li>
-                </ul>
-            </li>
-            <li class="category__item">
-                <img src="images/dist/categories/Category03.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Большой бассейн для плавания</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Дорожка спортивного плавания</li>
-                    <li class="category__sub-item">– Индивидуальные занятия</li>
-                    <li class="category__sub-item">– Глубина до 2 метров</li>
-                </ul>
-            </li>
-        </ul>
 
-        <h3 class="category__heading">Красота</h3>
-        <ul class="category__list">
-            <li class="category__item">
-                <img src="images/dist/categories/Category04.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Зал для йоги</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Просторный светлый зал</li>
-                    <li class="category__sub-item">– Вместимость до 10 человек</li>
-                    <li class="category__sub-item">– Групповые и одиночные занятия</li>
+                <h3 class="category__heading">Красота</h3>
+                <ul class="category__list">
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category04.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Зал для йоги</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Просторный светлый зал</li>
+                            <li class="category__sub-item">– Вместимость до 10 человек</li>
+                            <li class="category__sub-item">– Групповые и одиночные занятия</li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category05.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Зал для пилатеса</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Занятия для будущим мам</li>
+                            <li class="category__sub-item">– Современные тренажеры</li>
+                            <li class="category__sub-item">– Формирование здоровой осанки</li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category06.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Салон красоты</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Качественный массаж</li>
+                            <li class="category__sub-item">– Магазин уходовой косметики</li>
+                            <li class="category__sub-item">– Профессиональные мастера</li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li class="category__item">
-                <img src="images/dist/categories/Category05.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Зал для пилатеса</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Занятия для будущим мам</li>
-                    <li class="category__sub-item">– Современные тренажеры</li>
-                    <li class="category__sub-item">– Формирование здоровой осанки</li>
-                </ul>
-            </li>
-            <li class="category__item">
-                <img src="images/dist/categories/Category06.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Салон красоты</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Качественный массаж</li>
-                    <li class="category__sub-item">– Магазин уходовой косметики</li>
-                    <li class="category__sub-item">– Профессиональные мастера</li>
-                </ul>
-            </li>
-        </ul>
 
-        <h4 class="category__heading">Единоборства</h4>
-        <ul class="category__list">
-            <li class="category__item">
-                <img src="images/dist/categories/Category07.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Вольная борьба</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Участие в чемпионатах</li>
-                    <li class="category__sub-item">– Занятия для мальчиков от 10 лет</li>
-                    <li class="category__sub-item">– Тренеры - мастера спорта </li>
+                <h4 class="category__heading">Единоборства</h4>
+                <ul class="category__list">
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category07.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Вольная борьба</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Участие в чемпионатах</li>
+                            <li class="category__sub-item">– Занятия для мальчиков от 10 лет</li>
+                            <li class="category__sub-item">– Тренеры - мастера спорта </li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category08.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Самбо</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– Групповые занятия по 6 человек</li>
+                            <li class="category__sub-item">– Развитие виносливости и силы</li>
+                            <li class="category__sub-item">– Профессиональные тренеры</li>
+                        </ul>
+                    </li>
+                    <li class="category__item">
+                        <img src="images/dist/categories/Category09.jpg" alt="" class="category__img">
+                        <h3 class="category__sub-heading">Дзюдо</h3>
+                        <ul class="category__sub-list">
+                            <li class="category__sub-item">– 2 тренировочных зала</li>
+                            <li class="category__sub-item">– Групповые занятия по 8 человек</li>
+                            <li class="category__sub-item">– Профессиональные тренеры</li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li class="category__item">
-                <img src="images/dist/categories/Category08.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Самбо</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– Групповые занятия по 6 человек</li>
-                    <li class="category__sub-item">– Развитие виносливости и силы</li>
-                    <li class="category__sub-item">– Профессиональные тренеры</li>
-                </ul>
-            </li>
-            <li class="category__item">
-                <img src="images/dist/categories/Category09.jpg" alt="" class="category__img">
-                <h3 class="category__sub-heading">Дзюдо</h3>
-                <ul class="category__sub-list">
-                    <li class="category__sub-item">– 2 тренировочных зала</li>
-                    <li class="category__sub-item">– Групповые занятия по 8 человек</li>
-                    <li class="category__sub-item">– Профессиональные тренеры</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+            </section>
 
-    <section class="videos">
-        <h2 class="videos__heading">О клубе</h2>
-        <ul class="videos__list">
-            <li class="videos__item">
-                <img src="images/dist/videos/Video01.jpg" alt="" class="videos__preview">
-                <a href="https://www.youtube.com/watch?v=w0IjocBqEak&ab_channel=%D0%90%D1%80%D0%B5%D0%BD%D0%B0%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0%D0%97%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D1%8F"
-                    target="_blank" class="videos__play">
-                    <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z"
-                            fill="white" fill-opacity="0.8" />
-                        <path
-                            d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z"
-                            fill="white" fill-opacity="0.8" />
-                    </svg>
-                </a>
-                <h3 class="videos__video-heading">Один день из жизни фитнес-клуба</h3>
-            </li>
-            <li class="videos__item">
-                <img src="images/dist/videos/Video02.jpg" alt="" class="videos__preview">
-                <a href="https://www.youtube.com/watch?v=Gxj3HGu1M8E&ab_channel=FitGuide" target="_blank"
-                    class="videos__play">
-                    <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z"
-                            fill="white" fill-opacity="0.8" />
-                        <path
-                            d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z"
-                            fill="white" fill-opacity="0.8" />
-                    </svg>
-                </a>
-                <h3 class="videos__video-heading">Обзорная экскурсия по фитнес-клубу</h3>
-            </li>
-        </ul>
-    </section>
+            <section class="videos">
+                <h2 class="videos__heading">О клубе</h2>
+                <ul class="videos__list">
+                    <li class="videos__item">
+                        <img src="images/dist/videos/Video01.jpg" alt="" class="videos__preview">
+                        <a href="https://www.youtube.com/watch?v=w0IjocBqEak&ab_channel=%D0%90%D1%80%D0%B5%D0%BD%D0%B0%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0%D0%97%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D1%8F"
+                            target="_blank" class="videos__play">
+                            <svg width="74" height="74" viewBox="0 0 74 74" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z"
+                                    fill="white" fill-opacity="0.8" />
+                                <path
+                                    d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z"
+                                    fill="white" fill-opacity="0.8" />
+                            </svg>
+                        </a>
+                        <h3 class="videos__video-heading">Один день из жизни фитнес-клуба</h3>
+                    </li>
+                    <li class="videos__item">
+                        <img src="images/dist/videos/Video02.jpg" alt="" class="videos__preview">
+                        <a href="https://www.youtube.com/watch?v=Gxj3HGu1M8E&ab_channel=FitGuide" target="_blank"
+                            class="videos__play">
+                            <svg width="74" height="74" viewBox="0 0 74 74" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z"
+                                    fill="white" fill-opacity="0.8" />
+                                <path
+                                    d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z"
+                                    fill="white" fill-opacity="0.8" />
+                            </svg>
+                        </a>
+                        <h3 class="videos__video-heading">Обзорная экскурсия по фитнес-клубу</h3>
+                    </li>
+                </ul>
+            </section>
 
-    <%- include('partials/footer') %>
+        <%- include('partials/footer') %>
 </body>

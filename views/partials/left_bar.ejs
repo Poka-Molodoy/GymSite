@@ -1,0 +1,78 @@
+<div class="left-bar">
+    <a href="#" id="left-bar__logo-link">
+        <div class="left-bar__logo">
+            <img src="/images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
+        </div>
+    </a>
+    <button class="button-call" id="callUsButton">ПОЗВОНИТЬ НАМ</button>
+    <div class="form-container" id="form-container">
+        <div id="callbackForm" class="callback-popup">
+            <!-- Кнопка закрытия -->
+            <div class="close-btn" id="close-btn">
+                <!-- SVG крестика -->
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2 17.75L0.25 16L7.25 9L0.25 2L2 0.25L9 7.25L16 0.25L17.75 2L10.75 9L17.75 16L16 17.75L9 10.75L2 17.75Z"
+                        fill="#333333" />
+                </svg>
+            </div>
+            <div class="callback-popup__content">
+                <button id="closeForm" class="callback-popup__close">&times;</button>
+                <h3>Заполнив форму, наш менеджер свяжется с Вами для подробной информации об абонементах и
+                    спорт-клубе</h3>
+                    <form id="callbackFormContent" class="callback-form" action="/" method="post">
+                    <label for="fio">ФИО:</label>
+                    <input type="text" id="fio" name="fio" required>
+
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="comment">Комментарий:</label>
+                    <textarea id="comment" name="comment" rows="4"></textarea>
+
+                    <button type="submit" class="submit-button">ЗАКАЗАТЬ ЗВОНОК</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script nonce="<%= nonce %>">
+    document.addEventListener("DOMContentLoaded", function () {
+        const callUsButton = document.getElementById("callUsButton");
+        const callbackForm = document.getElementById("callbackForm");
+        const closeFormButton = document.getElementById("closeForm");
+
+        // Открытие формы при клике на кнопку "ПОЗВОНИТЬ НАМ"
+        callUsButton.addEventListener("click", function () {
+            callbackForm.style.display = "flex";
+        });
+
+        // Закрытие формы при клике на крестик
+        closeFormButton.addEventListener("click", function () {
+            callbackForm.style.display = "none";
+        });
+
+        // Закрытие формы при клике за пределами окна
+        window.addEventListener("click", function (event) {
+            if (event.target === callbackForm) {
+                callbackForm.style.display = "none";
+            }
+        });
+
+        // Закрытие формы при отправке данных (например, если форма отправляется)
+        callbackFormContent.addEventListener("submit", function (event) {
+            //event.preventDefault();  // Остановить отправку формы для демонстрации
+            // Закрытие формы после отправки
+            callbackForm.style.display = "none";
+        });
+
+        // Обработчик события mousedown для всего документа
+        document.addEventListener("mousedown", function (event) {
+            // Проверяем, находится ли клик внутри формы
+            if (!callbackForm.contains(event.target)) {
+                callbackForm.style.display = "none";
+            }
+        });
+    });
+</script>

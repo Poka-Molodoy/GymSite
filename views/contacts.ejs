@@ -9,18 +9,12 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="/css/contacts_style.css">
+    <link rel="stylesheet" href="/css/footer_style.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
-    <aside class="left-bar">
-        <div class="left-bar__logo">
-
-            <a href="index.html">
-                <img src="images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
-            </a>
-        </div>
-        <button class="button-call">ПОЗВОНИТЬ НАМ</button>
-    </aside>
+    <%- include('partials/left_bar') %>
 
     <%- include('partials/header') %>
 
