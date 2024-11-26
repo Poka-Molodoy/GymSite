@@ -3,6 +3,6 @@ const router = express.Router();
 const controller = require('../controllers/controller');
 
 router.get('/', controller.getIndexPage);
-router.post('/call-requests', controller.createCallRequest);
+router.post('/', controller.createCallRequest);
 
 module.exports = router;
