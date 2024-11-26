@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Фитнес-клуб SportArea</title>
+	<meta name="description" content="Поменяйте описание">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="images/favicon.png">
+  <style>
+    @font-face {
+      font-family: 'GraphikLCG-Medium';
+      src: url('fonts/GraphikLCG-Medium.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'GraphikLCG-Bold';
+      src: url('fonts/GraphikLCG-Bold.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'GraphikLCG-Semibold';
+      src: url('fonts/GraphikLCG-Semibold.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'GraphikLCG-Regular';
+      src: url('fonts/GraphikLCG-Regular.woff2') format('woff2');
+    }
+		
+    body {
+			margin: 0%;
+			padding: 0%;
+      scroll-behavior: smooth; 
+      overflow-x: hidden;
+		}
+
+		.main-header {
+      position: fixed; /* Закрепляем элемент */
+      top: 0%; /* Размещаем панель в верхней части экрана */
+      right: 0%;
+      left: 0%;
+      width: 100%;
+			background-color: #fff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+      z-index: 1000;
+		}
+
+		.main-menu {
+      display: flex;
+			list-style: none;
+      margin: 0%;
+			padding: 0%;
+      margin-left: 62.5%;
+		}
+
+		.main-menu__item {
+			margin: 0 30px;  
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #333;
+      font-family: 'GraphikLCG-Semibold', sans-serif;
+		}
+
+    .main-menu__item:first-child {
+			margin-left: 0%;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #333;
+      font-family: 'GraphikLCG-Semibold', sans-serif;
+		}
+
+		.main-menu__link {
+			text-decoration: none;
+			color: #333;
+      font-family: 'GraphikLCG-Semibold', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+		}
+
+		.main-menu__soc-links {
+      position: relative;  /* Делаем элемент относительным, чтобы z-index работал */
+      z-index: 2000; /* Социальные иконки будут выше панели */
+      right: 18.7%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 41.7%;
+		}
+
+    .left-bar {
+      width: 60px; 
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top: 0%;
+      bottom: 0%;
+      z-index: 1000;
+      pointer-events: none; /* Убираем кликабельность для всей панели */
+    }
+
+    .left-bar a {
+      pointer-events: auto; /* Включаем кликабельность только для логотипа */
+    }
+
+    .button-call {
+      pointer-events: auto;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 16.6% 34%;
+      cursor: pointer;
+      transform: rotate(-90deg); /* Поворот кнопки */
+      white-space: nowrap;
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+      position: absolute; /* Абсолютное позиционирование относительно панели */
+      bottom: 9.2%; /* Отступ от нижнего края панели */
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+
+    .left-bar__logo {
+      width: 100%;
+      margin-top: 88%; /* Отступ сверху, чтобы логотип не прилегал к верхнему краю */
+      transform: rotate(-90deg);
+    }
+
+    .button-detail {
+      background-color: white;
+      color: #333;
+      border: none;
+      padding: 0.8% 1.4%;
+      cursor: pointer;
+      z-index: 3; /* Чтобы кнопка была выше, чем карусель */
+      position: relative; /* Чтобы кнопка располагалась в документе */
+      top: 70%;  /* Плавный отступ вниз от списка */
+      left: 16.8%;
+      width: auto;
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+		
+    .first-screen {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .first-screen-bg {
+      width: 100%;
+      height: auto;
+    }
+
+    .first-screen__heading {
+      position: absolute;  /* Позиционируем заголовок поверх изображения */
+      top: 30%;            /* Размещаем по вертикали (вы можете настроить значение) */
+      left: 0%;             /* Выравнивание по левому краю */
+      transform: translateY(-50%); /* Центрируем по вертикали */
+      padding-left: 16.5%; /* Немного отступа слева, если нужно */
+      color: white;
+      z-index: 2;
+      width: 50%;
+      font-size: 60px;
+      letter-spacing: 5px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+
+    .first-screen__list {
+      position: absolute;  /* Позиционируем список поверх изображения */
+      top: 49%;            /* Размещаем ниже заголовка, вы можете настроить */
+      left: 0%;             /* Выравнивание по левому краю */
+      padding-left: 18%; /* Немного отступа слева */
+      color: white;
+      z-index: 2;
+      font-size: 16px;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+    }
+
+    .first-screen__item {
+      margin-bottom: 4%; /* Отступ между пунктами */
+    }
+
+    .carousel-images {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex; 
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: auto;
+      opacity: 0%;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+
+    .carousel-images img.active {
+      opacity: 1;
+    }
+    
+    .carousel-overlay {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(40, 40, 40, 0.75); 
+      pointer-events: none; 
+      z-index: 1;
+    }
+
+    .about {
+      padding: 10% 16.5% 0% 16.5%;
+    }
+
+    .about__heading {
+      font-size: 30px;
+      margin-left: 9%;
+      font-family: 'GraphikLCG-Bold', sans-serif;
+      color: #333;
+    }
+
+    .about__lead {
+      margin-left: 40.5%;
+      margin-top: -9.5%;
+      margin-bottom: 4%;
+      font-size: 17px;
+      font-family: 'GraphikLCG-SemiBold', sans-serif;
+      color: #333;
+    }
+
+    .about__paragraph {
+      margin-left: 40.5%;
+      font-size: 13px;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      color: #333;
+    }
+
+    /* Основные стили */
+    .category__heading {
+      margin: 0% auto 4%;
+      margin-left: 17%;
+      color: #333; 
+      font-size: 20px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+
+    .category__heading::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: #333;
+      margin: 100px auto 30px;
+      margin-right: 250px; 
+    }
+
+    .category__heading::after {
+      content: '';
+      display: block; 
+      position: absolute;
+      right: 250px; 
+      width: 10px;
+      height: 10px;
+      margin-top: -15px;
+      background-color: #333; 
+    }
+
+    .category__list {
+      display: flex;
+      gap: 2.2%;
+      list-style: none;
+      padding: 0%;
+      flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+      margin-left: 17%;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      color: #333;
+    }
+
+    .category__item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100%; /* Элементы будут занимать 100% ширины родительского контейнера */
+      max-width: 26.5%; /* Ограничение максимальной ширины элемента */
+      flex-grow: 1; /* Элементы могут расширяться */
+      transition: all 0.3s ease;
+    }
+
+    .category__img {
+      width: 100%; /* Картинка будет адаптироваться под ширину родительского элемента */
+      height: auto; /* Высота будет пропорционально изменяться */
+      object-fit: cover; /* Картинка будет масштабироваться, сохраняя пропорции */
+      transition: filter 0.3s ease, transform 0.3s ease; /* Плавное изменение яркости и масштаба */
+    }
+
+    /* Темнение картинки при наведении */
+    .category__item:hover .category__img {
+      filter: brightness(50%); /* Темнение картинки */
+    }
+
+    /* Стили для списка */
+    .category__sub-list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Центрируем по обеим осям */
+      list-style: none;
+      padding: 0%;
+      margin: 0%;
+      opacity: 0%; /* Скрываем список по умолчанию */
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s 0.3s; /* Плавное появление */
+      line-height: 1.2;
+      margin-bottom: 2.2%;
+      width: 90%;
+      text-align: left; /* Выравнивание текста по левому краю */
+    }
+
+    .category__item:hover .category__sub-list {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s 0s; /* Плавное появление списка */
+    }
+
+    /* Появление каждого элемента списка по очереди */
+    .category__sub-item {
+      font-size: 16px;
+      color: white;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      margin: 0%;
+      margin-bottom: 4.4%;
+      opacity: 0; /* По умолчанию скрываем элементы списка */
+      transition: opacity 0.3s ease-in-out;
+      /* Выравнивание текста по левому краю */
+      text-align: left;
+      padding-left: 2.2%; /* Добавляем немного отступа для текста */
+    }
+
+    /* Элементы списка появляются по очереди */
+    .category__item:hover .category__sub-item:nth-child(1) {
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+
+    .category__item:hover .category__sub-item:nth-child(2) {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+
+    .category__item:hover .category__sub-item:nth-child(3) {
+      opacity: 1;
+      transition-delay: 0.3s;
+    }
+
+    /* Стили для заголовка */
+    .category__sub-heading {
+      color: #333;
+      font-size: 16px;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      margin-bottom: 3.3%;
+    }
+
+    /* Медиазапросы для адаптации на разных экранах */
+    @media (max-width: 1024px) {
+      .category__list {
+        flex-direction: row; /* Элементы остаются в строку */
+      }
+
+      .category__item {
+        max-width: 300px; /* Ограничение ширины элементов на экранах до 1024px */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .category__list {
+        flex-direction: column; /* Ставим элементы списка в столбик на экранах до 768px */
+        margin-left: 0; /* Убираем отступ слева */
+      }
+
+      .category__item {
+        max-width: 100%; /* На маленьких экранах элементы могут занимать всю ширину */
+      }
+
+      .category__heading {
+        margin-left: 0; /* Убираем отступ слева для заголовков */
+      }
+
+      .category__img {
+        height: 200px; /* Ограничиваем высоту изображений для маленьких экранов */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category__heading {
+        font-size: 18px; /* Уменьшаем размер шрифта заголовков на маленьких экранах */
+      }
+
+      .category__sub-item {
+        font-size: 14px; /* Уменьшаем размер шрифта пунктов списка */
+      }
+
+      .category__img {
+        height: 180px; /* Дополнительное уменьшение высоты картинок на смартфонах */
+      }
+    }
+
+    .videos {
+      background-color: #333;
+      padding-top: 7%;
+    }
+    
+    .videos__heading {
+      margin: 0% auto 4%;
+      margin-left: 17%;
+      color: #fff; 
+      font-size: 20px;
+      font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+    
+    .videos__heading::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: #fff; 
+      margin: 30px auto 0px;  
+      margin-right: 250px;
+    }
+
+    .videos__heading::before {
+      content: '';
+      display: block; 
+      position: absolute;
+      right: 250px; 
+      width: 10px;
+      height: 10px;
+      margin-top: 5px;
+      background-color: #fff; 
+    }
+    
+    .videos__list {
+      display: flex;              
+      gap: 1.8%;                  
+      list-style: none;           
+      padding: 0%;
+      margin: 0%;
+      margin-left: 17%;
+    }
+
+    /* Элемент для каждого видео */
+    .videos__item {
+      position: relative;         /* Для абсолютного позиционирования иконки */
+      width: 40.5%;               /* Ширина каждого видео */
+      text-align: center;         /* Выравнивание текста по центру */
+    }
+
+    /* Превью изображения */
+    .videos__preview {
+      width: 100%;                /* Ширина изображения = ширине контейнера */
+      height: auto;               /* Сохраняем пропорции изображения */
+    }
+
+    .videos__item:hover .videos__preview {
+      filter: brightness(50%); /* Затемнение изображения при наведении */
+    }
+
+    /* Кнопка плеера (иконка) */
+    .videos__play {
+      position: absolute;         /* Абсолютное позиционирование */
+      top: 50%;                   /* Центрируем по вертикали */
+      left: 50%;                  /* Центрируем по горизонтали */
+      transform: translate(-50%, -50%);  /* Совсем точно центрируем */
+      background-color: transparent;
+      border: none;               /* Без обводки */
+      border-radius: 50%;         /* Круглая кнопка */
+      padding: 0%;              /* Отступы вокруг иконки */
+      cursor: pointer;           /* Указатель курсора */
+
+      opacity: 0; /* Скрыта изначально */
+      visibility: hidden; /* Скрыта изначально */
+      pointer-events: none; /* Блокирует клики по скрытой кнопке */
+      transition: opacity 0.3s ease, visibility 0s 0.3s; /* Плавный переход */
+    }
+
+    .videos__item:hover .videos__play {
+      opacity: 1; /* Появляется при наведении */
+      visibility: visible; /* Видна при наведении */
+      pointer-events: auto; /* Разрешаем клики по кнопке при видимости */
+      transition: opacity 0.3s ease, visibility 0s 0s; /* Плавный переход */
+    }
+
+    /* Название видео */
+    .videos__video-heading {
+      margin-top: 5%;           /* Отступ от видео */
+      font-size: 16px;            /* Размер шрифта */
+      color: white;                /* Цвет текста */
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      margin-bottom: 6%;
+      text-align: left;   
+    }
+    
+    .main-footer {
+      width: 100%;
+      padding: 0%;
+      background-color: #fff;
+    }
+
+    /* Верхняя часть футера с логотипом и меню */
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8% 0%;
+    }
+
+    .footer-logo {
+      width: 30%;
+      margin-left: 17%;
+    }
+
+    .footer-main-menu {
+      display: flex;
+			list-style: none;
+      margin: 0%;
+			padding: 0%;
+      margin-right: 17%;
+      align-items: left;
+		}
+
+		.footer-main-menu__item  {
+			margin: 0 30px;
+		}
+
+    .footer-main-menu__item:last-child  {
+			margin-right: 0%;
+		}
+
+		.footer-main-menu__link {
+			text-decoration: none;
+			color: #333;
+      font-family: 'GraphikLCG-Semibold', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+		}
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0%; 
+    }
+
+    .footer-text {
+      color: #fff;
+      font-size: 14px;
+      font-family: 'GraphikLCG-Regular', sans-serif;
+      margin-left: 16.9%;
+    }
+
+    .footer__soc-links {
+      position: relative;  /* Делаем элемент относительным, чтобы z-index работал */
+      z-index: 2000; /* Социальные иконки будут выше панели */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 46.8%;
+      right: 18.8%;
+      color: #333
+		}
+	</style>
+</head>
+
+<body>
+  <aside class="left-bar">
+    <a href="#" id="left-bar__logo-link"> 
+      <div class="left-bar__logo">
+        <img src="images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
+      </div>
+    </a>
+    <button class="button-call">ПОЗВОНИТЬ НАМ</button>
+  </aside>
+  
+  <header class ="main-header">
+    <nav class ="main-header__navigation">
+      <ul class = "main-menu">
+        <li class ="main-menu__item">
+          <a href="gallery.html" class="main-menu__link">ГАЛЕРЕЯ</a>
+        </li>
+        <li class ="main-menu__item">
+          <a href ="trainers.html" class = "main-menu__link">ТРЕНЕРЫ</a>
+        </li>
+        <li class ="main-menu__item">
+          <a href ="contacts.html" class = "main-menu__link">КОНТАКТЫ</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <ul class ="main-menu__soc-links">
+      <a href ="https://vk.com/skzvz" class = "main-menu__soc-links__link" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.92 15.3175H16.0183C15.2992 15.3175 15.0825 14.735 13.7933 13.445C12.6667 12.3591 12.1908 12.2241 11.9058 12.2241C11.5117 12.2241 11.4042 12.3325 11.4042 12.875V14.585C11.4042 15.0475 11.2542 15.3183 10.0458 15.3183C8.87358 15.2395 7.7368 14.8834 6.72914 14.2792C5.72148 13.6751 4.87177 12.8402 4.25 11.8433C2.77366 10.0058 1.74642 7.84919 1.25 5.54495C1.25 5.25995 1.35833 5.00162 1.90167 5.00162H3.80167C4.29 5.00162 4.46583 5.21912 4.6575 5.72162C5.58 8.43662 7.15417 10.7983 7.79333 10.7983C8.03833 10.7983 8.145 10.69 8.145 10.0791V7.28245C8.06417 6.00662 7.38667 5.89912 7.38667 5.43745C7.39524 5.31565 7.45095 5.20199 7.54198 5.12061C7.63301 5.03923 7.75217 4.99655 7.87417 5.00162H10.8608C11.2692 5.00162 11.4042 5.20495 11.4042 5.69329V9.46829C11.4042 9.87579 11.5792 10.0108 11.7025 10.0108C11.9475 10.0108 12.1358 9.87579 12.585 9.42745C13.5478 8.25327 14.3344 6.94509 14.92 5.54412C14.9799 5.37591 15.0933 5.23193 15.2427 5.13413C15.3921 5.03634 15.5694 4.99009 15.7475 5.00245H17.6483C18.2183 5.00245 18.3392 5.28745 18.2183 5.69412C17.527 7.2428 16.6715 8.71287 15.6667 10.0791C15.4617 10.3916 15.38 10.5541 15.6667 10.9208C15.855 11.2058 16.5217 11.7625 16.9692 12.2916C17.6208 12.9416 18.1617 13.6933 18.5708 14.5166C18.7342 15.0466 18.4625 15.3175 17.92 15.3175Z" fill="#333333"/>
+        </svg>
+      </a>
+      <a href ="https://www.instagram.com" class = "main-menu__soc-links__link" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.49996 1.66663H13.5C16.1666 1.66663 18.3333 3.83329 18.3333 6.49996V13.5C18.3333 14.7818 17.8241 16.0112 16.9176 16.9176C16.0112 17.8241 14.7818 18.3333 13.5 18.3333H6.49996C3.83329 18.3333 1.66663 16.1666 1.66663 13.5V6.49996C1.66663 5.21808 2.17585 3.9887 3.08228 3.08228C3.9887 2.17585 5.21808 1.66663 6.49996 1.66663ZM6.33329 3.33329C5.53764 3.33329 4.77458 3.64936 4.21197 4.21197C3.64936 4.77458 3.33329 5.53764 3.33329 6.33329V13.6666C3.33329 15.325 4.67496 16.6666 6.33329 16.6666H13.6666C14.4623 16.6666 15.2253 16.3506 15.7879 15.7879C16.3506 15.2253 16.6666 14.4623 16.6666 13.6666V6.33329C16.6666 4.67496 15.325 3.33329 13.6666 3.33329H6.33329ZM14.375 4.58329C14.6512 4.58329 14.9162 4.69304 15.1115 4.88839C15.3069 5.08374 15.4166 5.34869 15.4166 5.62496C15.4166 5.90123 15.3069 6.16618 15.1115 6.36153C14.9162 6.55688 14.6512 6.66663 14.375 6.66663C14.0987 6.66663 13.8337 6.55688 13.6384 6.36153C13.443 6.16618 13.3333 5.90123 13.3333 5.62496C13.3333 5.34869 13.443 5.08374 13.6384 4.88839C13.8337 4.69304 14.0987 4.58329 14.375 4.58329ZM9.99996 5.83329C11.105 5.83329 12.1648 6.27228 12.9462 7.05368C13.7276 7.83508 14.1666 8.89489 14.1666 9.99996C14.1666 11.105 13.7276 12.1648 12.9462 12.9462C12.1648 13.7276 11.105 14.1666 9.99996 14.1666C8.89489 14.1666 7.83508 13.7276 7.05368 12.9462C6.27228 12.1648 5.83329 11.105 5.83329 9.99996C5.83329 8.89489 6.27228 7.83508 7.05368 7.05368C7.83508 6.27228 8.89489 5.83329 9.99996 5.83329ZM9.99996 7.49996C9.33692 7.49996 8.70103 7.76335 8.23219 8.23219C7.76335 8.70103 7.49996 9.33692 7.49996 9.99996C7.49996 10.663 7.76335 11.2989 8.23219 11.7677C8.70103 12.2366 9.33692 12.5 9.99996 12.5C10.663 12.5 11.2989 12.2366 11.7677 11.7677C12.2366 11.2989 12.5 10.663 12.5 9.99996C12.5 9.33692 12.2366 8.70103 11.7677 8.23219C11.2989 7.76335 10.663 7.49996 9.99996 7.49996Z" fill="#333333"/>
+        </svg>
+      </a>
+      <a href ="https://ru-ru.facebook.com/login/?next=https%3A%2F%2Fru-ru.facebook.com%2F" class = "main-menu__soc-links__link" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.6667 11.25H13.75L14.5834 7.91663H11.6667V6.24996C11.6667 5.39163 11.6667 4.58329 13.3334 4.58329H14.5834V1.78329C14.3117 1.74746 13.2859 1.66663 12.2025 1.66663C9.94004 1.66663 8.33337 3.04746 8.33337 5.58329V7.91663H5.83337V11.25H8.33337V18.3333H11.6667V11.25Z" fill="#333333"/>
+        </svg>
+      </a>
+    </ul>
+  </header>
+
+  <section class ="first-screen">
+    <div class="carousel-images">
+      <img src="images/dist/first-screen_background/Background_main1.jpg" alt="Background 1" class="active">
+      <img src="images/dist/first-screen_background/Background_main2.jpg" alt="Background 2">
+      <img src="images/dist/first-screen_background/Background_main3.jpg" alt="Background 3">
+    </div>
+    <div class="carousel-overlay"></div>
+    <h1 class ="first-screen__heading">ФИТНЕС-КЛУБ SPORTAREA</h1>
+    <ul class ="first-screen__list">
+        <li class ="first-screen__item">Самая современная система очистки бассейна</li>
+        <li class ="first-screen__item">Тренеры с опытом работы более 10 лет</li>
+        <li class ="first-screen__item">6 тренажерных залов и спа зона </li>
+    </ul>
+    <a href ="#" class ="button-detail">Подробнее</a>
+  </section>
+  
+  <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const totalImages = images.length;
+  
+    function switchImage() {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % totalImages;
+      images[currentIndex].classList.add('active');
+    }
+  
+    setInterval(switchImage, 4000); // Смена изображений каждые 3 секунды
+  </script>
+  
+  <script>
+    // Убедимся, что DOM загружен
+    document.addEventListener("DOMContentLoaded", function () {
+      const logoLink = document.getElementById('left-bar__logo-link');
+      
+      // Добавляем обработчик клика на логотип
+      logoLink.addEventListener('click', function (e) {
+        e.preventDefault(); // Отменить переход по ссылке
+        
+        // Плавно прокручиваем на верх страницы с помощью scrollIntoView
+        document.documentElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  </script>
+  
+  <section class="about">
+  <h2 class ="about__heading">SPORTAREA</h3>
+  <p class ="about__lead">Семейный фитнес-клуб SportArea — лучшее решение на рынке спортивных комплексов.</p>
+  <p class ="about__paragraph">Фитнес-центр "SportArea" — это обновленный и на сегодняшний день самый крупный фитнес-центр в Казани.
+    В просторы клуба площадью более 10 000 м² входят комплекс услуг: просторный тренажерный зал, кардиозал с панорамным остеклением,
+    зал функционального тренинга, сайкл-студия, зал персонального тренинга, релакс-зона, школа танцев, уникальный зал единоборств.</p>
+  <p class ="about__paragraph">Приветливый персонал, внимательные, профессионально обученные инструкторы. Проблемы со спиной или суставами? 
+    После посещения всё будет в порядке! Эффективные групповые программы регулярно обновляются. Повторные фитнес-тестирования 
+    покажут улучшение большинства показателей физической подготовленности организма. Сердце станет более выносливым.</p>
+  </section>
+  
+  <section class ="category">
+  <h2 class ="category__heading">Водные сооружения</h2>
+  <ul class ="category__list">
+    <li class ="category__item">
+      <img src="images/dist/categories/Category01.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Бассейн для водного поло</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Ежедневная очистка бассейна</li>
+        <li class ="category__sub-item">– Современный инвентарь</li>
+        <li class ="category__sub-item">– Командные турниры</li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category02.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Малый бассейн для занятий</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Секция для беременных</li>
+        <li class ="category__sub-item">– Детская секция от 8 лет</li>
+        <li class ="category__sub-item">– Танцевальная аквааэробика</li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category03.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Большой бассейн для плавания</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Дорожка спортивного плавания</li>
+        <li class ="category__sub-item">– Индивидуальные занятия</li>
+        <li class ="category__sub-item">– Глубина до 2 метров</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h3 class ="category__heading">Красота</h3>
+  <ul class ="category__list">
+    <li class ="category__item">
+      <img src="images/dist/categories/Category04.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Зал для йоги</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Просторный светлый зал</li>
+        <li class ="category__sub-item">– Вместимость до 10 человек</li>
+        <li class ="category__sub-item">– Групповые и одиночные занятия</li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category05.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Зал для пилатеса</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Занятия для будущим мам</li>
+        <li class ="category__sub-item">– Современные тренажеры</li>
+        <li class ="category__sub-item">– Формирование здоровой осанки</li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category06.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Салон красоты</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Качественный массаж</li>
+        <li class ="category__sub-item">– Магазин уходовой косметики</li>
+        <li class ="category__sub-item">– Профессиональные мастера</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4 class ="category__heading">Единоборства</h4>
+  <ul class ="category__list">
+    <li class ="category__item">
+      <img src="images/dist/categories/Category07.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Вольная борьба</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Участие в чемпионатах</li>
+        <li class ="category__sub-item">– Занятия для мальчиков от 10 лет</li>
+        <li class ="category__sub-item">– Тренеры - мастера спорта </li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category08.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Самбо</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– Групповые занятия по 6 человек</li>
+        <li class ="category__sub-item">– Развитие виносливости и силы</li>
+        <li class ="category__sub-item">– Профессиональные тренеры</li>
+      </ul>
+    </li>
+    <li class ="category__item">
+      <img src="images/dist/categories/Category09.jpg" alt="" class="category__img">
+      <h3 class ="category__sub-heading">Дзюдо</h3>
+      <ul class ="category__sub-list">
+        <li class ="category__sub-item">– 2 тренировочных зала</li>
+        <li class ="category__sub-item">– Групповые занятия по 8 человек</li>
+        <li class ="category__sub-item">– Профессиональные тренеры</li>
+      </ul>
+    </li>
+  </ul>
+  </section>
+  
+  <section class="videos">
+  <h2 class="videos__heading">О клубе</h2>
+  <ul class="videos__list">
+    <li class="videos__item">
+        <img src="images/dist/videos/Video01.jpg" alt="" class="videos__preview">
+        <button class="videos__play">
+          <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z" fill="white" fill-opacity="0.8"/>
+            <path d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z" fill="white" fill-opacity="0.8"/>
+          </svg>
+        </button>
+        <h3 class ="videos__video-heading">Один день из жизни фитнес-клуба</h3>
+    </li>
+    <li class="videos__item">
+      <img src="images/dist/videos/Video02.jpg" alt="" class="videos__preview">
+      <button class="videos__play">
+        <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28.6667 48.9464V25.0531C28.6672 24.7541 28.7481 24.4608 28.9009 24.2039C29.0537 23.9469 29.2728 23.7358 29.5353 23.5927C29.7977 23.4495 30.0938 23.3796 30.3926 23.3902C30.6913 23.4008 30.9817 23.4916 31.2334 23.6531L49.82 35.5964C50.0554 35.7472 50.249 35.9547 50.3831 36.2C50.5173 36.4452 50.5876 36.7202 50.5876 36.9997C50.5876 37.2792 50.5173 37.5542 50.3831 37.7995C50.249 38.0447 50.0554 38.2523 49.82 38.4031L31.2334 50.3497C30.9817 50.5111 30.6913 50.6019 30.3926 50.6126C30.0938 50.6232 29.7977 50.5533 29.5353 50.4101C29.2728 50.267 29.0537 50.0558 28.9009 49.7989C28.7481 49.542 28.6672 49.2487 28.6667 48.9497V48.9464Z" fill="white" fill-opacity="0.8"/>
+          <path d="M0.333374 36.9997C0.333374 16.7497 16.75 0.333008 37 0.333008C57.25 0.333008 73.6667 16.7497 73.6667 36.9997C73.6667 57.2497 57.25 73.6663 37 73.6663C16.75 73.6663 0.333374 57.2497 0.333374 36.9997ZM37 5.33301C28.6015 5.33301 20.547 8.66931 14.6083 14.608C8.66967 20.5466 5.33337 28.6012 5.33337 36.9997C5.33337 45.3982 8.66967 53.4527 14.6083 59.3914C20.547 65.33 28.6015 68.6663 37 68.6663C45.3986 68.6663 53.4531 65.33 59.3918 59.3914C65.3304 53.4527 68.6667 45.3982 68.6667 36.9997C68.6667 28.6012 65.3304 20.5466 59.3918 14.608C53.4531 8.66931 45.3986 5.33301 37 5.33301Z" fill="white" fill-opacity="0.8"/>
+        </svg>
+      </button>
+      <h3 class ="videos__video-heading">Обзорная экскурсия по фитнес-клубу</h3>
+    </li>
+  </ul>
+  </section>
+  
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/dist/logo.svg" alt ="" class="logo__img">
+      </div>
+      <ul class="footer-main-menu">
+        <li class="footer-main-menu__item">
+          <a href="subscriptions.html" class="footer-main-menu__link">ГАЛЕРЕЯ</a>
+        </li>
+        <li class="footer-main-menu__item">
+          <a href="trainers.html" class="footer-main-menu__link">ТРЕНЕРЫ</a>
+        </li>
+        <li class="footer-main-menu__item">
+          <a href="contacts.html" class="footer-main-menu__link">КОНТАКТЫ</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-text">(c) SportArea 2024. Все права защищены.</p>
+      <ul class ="footer__soc-links">
+        <li>
+          <a href ="https://vk.com" class = "footer-soc-links__link" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.92 10.3175H15.0183C14.2992 10.3175 14.0825 9.73495 12.7933 8.44495C11.6667 7.35912 11.1908 7.22412 10.9058 7.22412C10.5117 7.22412 10.4042 7.33245 10.4042 7.87495V9.58495C10.4042 10.0475 10.2542 10.3183 9.04583 10.3183C7.87358 10.2395 6.7368 9.88341 5.72914 9.27925C4.72148 8.67509 3.87177 7.84018 3.25 6.84329C1.77366 5.0058 0.746423 2.84919 0.25 0.544952C0.25 0.259952 0.358333 0.00161895 0.901667 0.00161895H2.80167C3.29 0.00161895 3.46583 0.219119 3.6575 0.721619C4.58 3.43662 6.15417 5.79829 6.79333 5.79829C7.03833 5.79829 7.145 5.68995 7.145 5.07912V2.28245C7.06417 1.00662 6.38667 0.899119 6.38667 0.437452C6.39524 0.315653 6.45095 0.201993 6.54198 0.120613C6.63301 0.0392338 6.75217 -0.00345339 6.87417 0.00161895H9.86083C10.2692 0.00161895 10.4042 0.204952 10.4042 0.693286V4.46829C10.4042 4.87579 10.5792 5.01079 10.7025 5.01079C10.9475 5.01079 11.1358 4.87579 11.585 4.42745C12.5478 3.25327 13.3344 1.94509 13.92 0.544119C13.9799 0.375913 14.0933 0.231931 14.2427 0.134133C14.3921 0.0363354 14.5694 -0.00990959 14.7475 0.00245223H16.6483C17.2183 0.00245223 17.3392 0.287453 17.2183 0.694119C16.527 2.2428 15.6715 3.71287 14.6667 5.07912C14.4617 5.39162 14.38 5.55412 14.6667 5.92078C14.855 6.20579 15.5217 6.76245 15.9692 7.29162C16.6208 7.94162 17.1617 8.69329 17.5708 9.51662C17.7342 10.0466 17.4625 10.3175 16.92 10.3175Z" fill="white"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href ="https://www.instagram.com" class = "footer-soc-links__link" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.49996 0.666748H12.5C15.1666 0.666748 17.3333 2.83341 17.3333 5.50008V12.5001C17.3333 13.782 16.8241 15.0113 15.9176 15.9178C15.0112 16.8242 13.7818 17.3334 12.5 17.3334H5.49996C2.83329 17.3334 0.666626 15.1667 0.666626 12.5001V5.50008C0.666626 4.2182 1.17585 2.98882 2.08228 2.0824C2.9887 1.17597 4.21808 0.666748 5.49996 0.666748ZM5.33329 2.33341C4.53764 2.33341 3.77458 2.64949 3.21197 3.21209C2.64936 3.7747 2.33329 4.53777 2.33329 5.33341V12.6667C2.33329 14.3251 3.67496 15.6667 5.33329 15.6667H12.6666C13.4623 15.6667 14.2253 15.3507 14.7879 14.7881C15.3506 14.2255 15.6666 13.4624 15.6666 12.6667V5.33341C15.6666 3.67508 14.325 2.33341 12.6666 2.33341H5.33329ZM13.375 3.58341C13.6512 3.58341 13.9162 3.69316 14.1115 3.88851C14.3069 4.08386 14.4166 4.34881 14.4166 4.62508C14.4166 4.90135 14.3069 5.1663 14.1115 5.36165C13.9162 5.557 13.6512 5.66675 13.375 5.66675C13.0987 5.66675 12.8337 5.557 12.6384 5.36165C12.443 5.1663 12.3333 4.90135 12.3333 4.62508C12.3333 4.34881 12.443 4.08386 12.6384 3.88851C12.8337 3.69316 13.0987 3.58341 13.375 3.58341ZM8.99996 4.83341C10.105 4.83341 11.1648 5.2724 11.9462 6.0538C12.7276 6.8352 13.1666 7.89501 13.1666 9.00008C13.1666 10.1052 12.7276 11.165 11.9462 11.9464C11.1648 12.7278 10.105 13.1667 8.99996 13.1667C7.89489 13.1667 6.83508 12.7278 6.05368 11.9464C5.27228 11.165 4.83329 10.1052 4.83329 9.00008C4.83329 7.89501 5.27228 6.8352 6.05368 6.0538C6.83508 5.2724 7.89489 4.83341 8.99996 4.83341ZM8.99996 6.50008C8.33692 6.50008 7.70103 6.76347 7.23219 7.23231C6.76335 7.70115 6.49996 8.33704 6.49996 9.00008C6.49996 9.66312 6.76335 10.299 7.23219 10.7678C7.70103 11.2367 8.33692 11.5001 8.99996 11.5001C9.663 11.5001 10.2989 11.2367 10.7677 10.7678C11.2366 10.299 11.5 9.66312 11.5 9.00008C11.5 8.33704 11.2366 7.70115 10.7677 7.23231C10.2989 6.76347 9.663 6.50008 8.99996 6.50008Z" fill="white"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href ="https://ru-ru.facebook.com/login/?next=https%3A%2F%2Fru-ru.facebook.com%2F" class = "footer-soc-links__link" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.66671 10.2501H8.75004L9.58337 6.91675H6.66671V5.25008C6.66671 4.39175 6.66671 3.58341 8.33337 3.58341H9.58337V0.783415C9.31171 0.747581 8.28587 0.666748 7.20254 0.666748C4.94004 0.666748 3.33337 2.04758 3.33337 4.58341V6.91675H0.833374V10.2501H3.33337V17.3334H6.66671V10.2501Z" fill="white"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
