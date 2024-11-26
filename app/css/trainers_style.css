@@ -1,0 +1,424 @@
+@font-face {
+    font-family: 'GraphikLCG-Medium';
+    src: url('fonts/GraphikLCG-Medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'GraphikLCG-Bold';
+    src: url('fonts/GraphikLCG-Bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'GraphikLCG-Semibold';
+    src: url('fonts/GraphikLCG-Semibold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'GraphikLCG-Regular';
+    src: url('fonts/GraphikLCG-Regular.woff2') format('woff2');
+  }
+      
+  body {
+          margin: 0%;
+          padding: 0%;
+    scroll-behavior: smooth; 
+    overflow-x: hidden;
+      }
+
+      .main-header {
+    position: fixed; /* Закрепляем элемент */
+    top: 0%; /* Размещаем панель в верхней части экрана */
+    right: 0%;
+    left: 0%;
+    width: 100%;
+          background-color: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+    z-index: 1000;
+      }
+
+      .main-menu {
+    display: flex;
+          list-style: none;
+    margin: 0%;
+          padding: 0%;
+    margin-left: 62.5%;
+      }
+
+      .main-menu__item {
+          margin: 0 30px;  
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+      }
+
+  .main-menu__item:first-child {
+          margin-left: 0%;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+      }
+
+      .main-menu__link {
+          text-decoration: none;
+          color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+      }
+
+      .main-menu__soc-links {
+    position: relative;  /* Делаем элемент относительным, чтобы z-index работал */
+    z-index: 2000; /* Социальные иконки будут выше панели */
+    right: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45%;
+      }
+
+  .left-bar {
+    width: 60px; 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    z-index: 1000;
+    pointer-events: none; /* Убираем кликабельность для всей панели */
+  }
+
+  .left-bar a {
+    pointer-events: auto; /* Включаем кликабельность только для логотипа */
+  }
+
+  .button-call {
+    pointer-events: auto;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 16.6% 34%;
+    cursor: pointer;
+    transform: rotate(-90deg); /* Поворот кнопки */
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+    position: absolute; /* Абсолютное позиционирование относительно панели */
+    bottom: 9.2%; /* Отступ от нижнего края панели */
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+  }
+
+  .left-bar__logo {
+    width: 125px;
+    transform: rotate(-90deg);
+    margin-top: 184%;
+  }
+
+
+      
+  .first-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .first-screen-bg {
+    width: 100%;
+    height: auto;
+  }
+  .first-screen__breadcrumbs{
+    position: absolute;  /* Позиционируем заголовок поверх изображения */
+    top: 25%;            /* Размещаем по вертикали (вы можете настроить значение) */
+    left: 45%;             /* Выравнивание по левому краю */
+    z-index: 2;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    color: white;
+
+  }
+  .first-screen__heading {
+    position: absolute;  /* Позиционируем заголовок поверх изображения */
+    top: 30%;            /* Размещаем по вертикали (вы можете настроить значение) */
+    transform: translateY(-50%); /* Центрируем по вертикали */
+    left: 50%;                /* Центрируем по горизонтали */
+    transform: translateX(-50%) translateY(-50%); /* Центрируем по горизонтали и вертикали */
+    color: white;
+    z-index: 2;
+    font-size: 48px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+  }
+
+  .first-screen__list {
+    position: absolute;  /* Позиционируем список поверх изображения */
+    top: 42%;            /* Размещаем ниже заголовка, вы можете настроить */
+    padding-left: 30%;                /* Центрируем по горизонтали */
+    padding-right: 30%;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    font-size: 16px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+  }
+
+  .first-screen__item {
+    margin-bottom: 4%; /* Отступ между пунктами */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 67%;
+    background-color: rgba(40, 40, 40, 0.75); 
+    pointer-events: none; 
+    z-index: 1;
+  }
+
+  /* Основные стили */
+  .category__heading {
+    margin: 0% auto 4%;
+    margin-left: 17%;
+    color: #333; 
+    font-size: 20px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+  }
+
+  .category__heading::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #333;
+    margin: 0px auto 30px;
+    margin-right: 250px;
+  }
+
+  .category__heading::after {
+    content: '';
+    display: block; 
+    position: absolute;
+    right: 250px; 
+    width: 10px;
+    height: 10px;
+    margin-top: -15px;
+    background-color: #333; 
+  }
+
+  .category__list {
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    gap: 1.5%; /* Минимальный отступ между картинками */
+    padding: 0%;
+    list-style: none;
+    margin-left: 17%; /* Отступ слева для центрирования */
+    margin-right: 17%; /* Отступ справа */
+    text-align: center;
+  }
+
+  .category__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0%; /* Убираем все внешние отступы */
+    padding: 0%; /* Убираем все внутренние отступы */
+    width: 100%; /* Элементы будут занимать 100% ширины родительского контейнера */
+    max-width: 23.87%; /* Ограничение максимальной ширины элемента */
+    flex-grow: 1; /* Элементы могут расширяться */
+    transition: all 0.3s ease;
+  }
+
+  .category__img {
+    width: 100%; /* Картинка будет адаптироваться под ширину родительского элемента */
+    height: auto; /* Высота будет пропорционально изменяться */
+    object-fit: cover; /* Картинка будет масштабироваться, сохраняя пропорции */
+    transition: filter 0.3s ease, transform 0.3s ease; /* Плавное изменение яркости и масштаба */
+    margin: 0%; /* Убираем все отступы у картинок */
+    padding: 0%; /* Убираем все внутренние отступы у картинок */
+  }
+
+  /* Темнение картинки при наведении */
+  .category__item:hover .category__img {
+    filter: brightness(50%); /* Темнение картинки */
+  }
+
+  /* Стили для списка */
+  .category__sub-list {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем по обеим осям */
+    list-style: none;
+    padding: 0%;
+    margin: 0%;
+    opacity: 0%; /* Скрываем список по умолчанию */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Плавное появление */
+    line-height: 1.2;
+    margin-bottom: 2.2%;
+    width: 90%;
+    text-align: left; /* Выравнивание текста по левому краю */
+  }
+
+  .category__item:hover .category__sub-list {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Плавное появление списка */
+  }
+
+  /* Появление каждого элемента списка по очереди */
+  .category__sub-item {
+    font-size: 14px;
+    color: white;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    margin: 0%;
+    margin-bottom: 7%;
+    opacity: 0; /* По умолчанию скрываем элементы списка */
+    transition: opacity 0.3s ease-in-out;
+    /* Выравнивание текста по левому краю */
+
+
+  }
+
+  /* Элементы списка появляются по очереди */
+  .category__item:hover .category__sub-item:nth-child(1) {
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
+
+  .category__item:hover .category__sub-item:nth-child(2) {
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+
+  .category__item:hover .category__sub-item:nth-child(3) {
+    opacity: 1;
+    transition-delay: 0.3s;
+  }
+
+  /* Стили для заголовка */
+  .category__sub-heading {
+    color: #333;
+    font-size: 16px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    justify-content: center;
+    margin-bottom: 30%;
+  }
+
+  /* Медиазапросы для адаптации на разных экранах */
+  @media (max-width: 1024px) {
+    .category__list {
+      flex-direction: row; /* Элементы остаются в строку */
+    }
+
+    .category__item {
+      max-width: 300px; /* Ограничение ширины элементов на экранах до 1024px */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .category__list {
+      flex-direction: column; /* Ставим элементы списка в столбик на экранах до 768px */
+      margin-left: 0; /* Убираем отступ слева */
+    }
+
+    .category__item {
+      max-width: 100%; /* На маленьких экранах элементы могут занимать всю ширину */
+    }
+
+    .category__heading {
+      margin-left: 0; /* Убираем отступ слева для заголовков */
+    }
+
+    .category__img {
+      height: 200px; /* Ограничиваем высоту изображений для маленьких экранов */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .category__heading {
+      font-size: 18px; /* Уменьшаем размер шрифта заголовков на маленьких экранах */
+    }
+
+    .category__sub-item {
+      font-size: 14px; /* Уменьшаем размер шрифта пунктов списка */
+    }
+
+    .category__img {
+      height: 180px; /* Дополнительное уменьшение высоты картинок на смартфонах */
+    }
+  }
+
+  .main-footer {
+    width: 100%;
+    padding: 0%;
+    background-color: #fff;
+  }
+
+  /* Верхняя часть футера с логотипом и меню */
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8% 0%;
+  }
+
+  .footer-logo {
+    width: 30%;
+    margin-left: 17%;
+  }
+
+  .footer-main-menu {
+    display: flex;
+          list-style: none;
+    margin: 0%;
+          padding: 0%;
+    margin-right: 20%;
+    align-items: left;
+      }
+
+      .footer-main-menu__item  {
+          margin: 0 7%;
+      }
+
+  .footer-main-menu__item:last-child  {
+          margin-right: 0%;
+      }
+
+      .footer-main-menu__link {
+          text-decoration: none;
+          color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+      }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 0%; 
+  }
+
+  .footer-text {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    margin-left: 16.9%;
+  }
+

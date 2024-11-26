@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Фитнес-клуб SportArea</title>
+    <meta name="description" content="Поменяйте описание">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="/css/contacts_style.css">
+</head>
+
+<body>
+    <aside class="left-bar">
+        <div class="left-bar__logo">
+
+            <a href="index.html">
+                <img src="images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
+            </a>
+        </div>
+        <button class="button-call">ПОЗВОНИТЬ НАМ</button>
+    </aside>
+
+    <%- include('partials/header') %>
+
+        <section class="first-screen">
+            <div class="carousel-images">
+                <img src="images/dist/first-screen_background/Background_contacts1.jpg" alt="Background 1"
+                    class="active">
+                <img src="images/dist/first-screen_background/Background_contacts2.jpg" alt="Background 2">
+                <img src="images/dist/first-screen_background/Background_contacts3.jpg" alt="Background 3">
+            </div>
+            <div class="first-screen__breadcrumbs">
+
+                <hi class="first-screen__breadcrumbs__item">Главная / Контакты</h1>
+            </div>
+            <div class="first-screen__photo">
+
+                <img src="images/dist/contacts/contacts__man.jpg" alt="man">
+            </div>
+            <div class="carousel-overlay"></div>
+            <h1 class="first-screen__heading">КОНТАКТЫ</h1>
+            <ul class="first-screen__list">
+                <li class="first-screen__item">
+                    <h3 class="first-screen__sub-heading">Адрес</h3>
+                    <ul class="first-screen__sub-list">
+                        <li class="first-screen__sub-item">198000, Санкт-Петербург, Невский 111, помещение 110</li>
+
+                    </ul>
+                </li>
+                <li class="first-screen__item">
+                    <h3 class="first-screen__sub-heading">Абонементский отдел</h3>
+                    <ul class="first-screen__sub-list">
+                        <li class="first-screen__sub-item">+7 (812) 111-22-33</li>
+                        <li class="first-screen__sub-item">abon@sportarea.ru</li>
+
+                    </ul>
+                </li>
+                <li class="first-screen__item">
+                    <h3 class="first-screen__sub-heading">Фитнес-клуб на Невском</h3>
+                    <ul class="first-screen__sub-list">
+                        <li class="first-screen__sub-item">+7 (812) 111-22-33</li>
+                        <li class="first-screen__sub-item">nevsky@sportarea.ru</li>
+
+                    </ul>
+                </li>
+        </section>
+
+        <script nonce="<%= nonce %>">
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.carousel-images img');
+            const totalImages = images.length;
+
+            function switchImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % totalImages;
+                images[currentIndex].classList.add('active');
+            }
+
+            setInterval(switchImage, 4000); // Смена изображений каждые 3 секунды
+        </script>
+
+        <div class="reviews-section">
+            <h2 class="reviews-title">Отзывы наших клиентов</h2>
+
+            <!-- Карусель отзывов -->
+            <div class="reviews-carousel">
+                <div class="reviews-list">
+                    <!-- Отзыв 1 -->
+                    <div class="review-card">
+                        <div class="review-name">Иван Иванов</div>
+                        <div class="review-comment">Очень хороший фитнес-клуб, тренировки всегда интересные и результат
+                            виден уже через пару недель.</div>
+                    </div>
+                    <!-- Отзыв 2 -->
+                    <div class="review-card">
+                        <div class="review-name">Мария Петрова</div>
+                        <div class="review-comment">Профессиональные тренеры и отличные условия для занятий. Всем
+                            рекомендую!</div>
+                    </div>
+                    <!-- Отзыв 3 -->
+                    <div class="review-card">
+                        <div class="review-name">Алексей Смирнов</div>
+                        <div class="review-comment">Клуб имеет отличное оборудование и очень дружественную атмосферу. Я
+                            доволен результатами.</div>
+                    </div>
+                </div>
+
+                <!-- Кнопки для переключения -->
+                <button class="carousel-button carousel-button-left" id="prevBtn">&#8249;</button>
+                <button class="carousel-button carousel-button-right" id="nextBtn">&#8250;</button>
+            </div>
+
+            <!-- Кнопка для добавления отзыва -->
+            <button class="add-review-btn" id="openModalBtn">Добавить отзыв</button>
+        </div>
+
+        <script nonce="<%= nonce %>">
+            // Инициализация переменных для управления каруселью
+            let currentIndexC = 0;
+            const reviews = document.querySelector('.reviews-list');
+            const totalReviews = document.querySelectorAll('.review-card').length;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Функция для обновления позиции каруселиC
+            function updateCarousel() {
+                const offset = -currentIndexC * 100; // смещение по оси X (каждый слайд - 100%)
+                reviews.style.transform = `translateX(${offset}%)`;
+            }
+
+            // Обработчик для кнопки "влево"
+            prevBtn.addEventListener('click', () => {
+                if (currentIndexC > 0) {
+                    currentIndexC--;
+                } else {
+                    currentIndexC = totalReviews - 1; // переход на последний слайд
+                }
+                updateCarousel();
+            });
+
+            // Обработчик для кнопки "вправо"
+            nextBtn.addEventListener('click', () => {
+                if (currentIndexC < totalReviews - 1) {
+                    currentIndexC++;
+                } else {
+                    currentIndexC = 0; // переход на первый слайд
+                }
+                updateCarousel();
+            });
+
+            // Инициализация карусели
+            updateCarousel();
+        </script>
+
+        <%- include('partials/footer') %>
+</body>

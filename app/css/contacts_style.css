@@ -1,0 +1,433 @@
+@font-face {
+    font-family: 'GraphikLCG-Medium';
+    src: url('fonts/GraphikLCG-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'GraphikLCG-Bold';
+    src: url('fonts/GraphikLCG-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'GraphikLCG-Semibold';
+    src: url('fonts/GraphikLCG-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'GraphikLCG-Regular';
+    src: url('fonts/GraphikLCG-Regular.woff2') format('woff2');
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.main-header {
+    position: fixed;
+    /* Закрепляем элемент */
+    top: 0;
+    /* Размещаем панель в верхней части экрана */
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 250px;
+}
+
+.main-menu__item {
+    margin: 0 30px;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+}
+
+.main-menu__item:first-child {
+    margin-left: 0px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+}
+
+.main-menu__link {
+    text-decoration: none;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.main-menu__soc-links {
+    position: relative;
+    /* Делаем элемент относительным, чтобы z-index работал */
+    z-index: 2000;
+    /* Социальные иконки будут выше панели */
+    right: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45%;
+}
+
+
+
+
+.left-bar {
+    width: 60px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    pointer-events: none;
+    /* Убираем кликабельность для всей панели */
+}
+
+.left-bar a {
+    pointer-events: auto;
+    /* Включаем кликабельность только для логотипа */
+}
+
+.button-call {
+    pointer-events: auto;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    /* Поворот кнопки */
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+    position: absolute;
+    /* Абсолютное позиционирование относительно панели */
+    bottom: 70px;
+    /* Отступ от нижнего края панели */
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+}
+
+.left-bar__logo {
+    width: 125px;
+    margin-top: 40px;
+    /* Отступ сверху, чтобы логотип не прилегал к верхнему краю */
+    transform: rotate(-90deg);
+    margin-top: 110px;
+}
+
+.first-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.first-screen-bg {
+    width: 100%;
+    height: auto;
+}
+
+.first-screen__breadcrumbs__item {
+    position: absolute;
+    /* Позиционируем заголовок поверх изображения */
+    top: 25%;
+    /* Размещаем по вертикали (вы можете настроить значение) */
+    left: 0%;
+    /* Выравнивание по левому краю */
+    transform: translateY(-50%);
+    /* Центрируем по вертикали */
+    padding-left: 20%;
+    /* Немного отступа слева, если нужно */
+    z-index: 2;
+    width: 50%;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    color: white;
+}
+
+.first-screen__heading {
+    position: absolute;
+    /* Позиционируем заголовок поверх изображения */
+    top: 30%;
+    /* Размещаем по вертикали (вы можете настроить значение) */
+    left: 0%;
+    /* Выравнивание по левому краю */
+    transform: translateY(-50%);
+    /* Центрируем по вертикали */
+    padding-left: 20%;
+    /* Немного отступа слева, если нужно */
+    color: white;
+    z-index: 2;
+    width: 50%;
+    font-size: 40px;
+    letter-spacing: 5px;
+    font-family: 'GraphikLCG-Medium', sans-serif;
+
+}
+
+.first-screen__list {
+    list-style: none;
+    position: absolute;
+    /* Позиционируем список поверх изображения */
+    top: 38%;
+    /* Размещаем ниже заголовка, вы можете настроить */
+    left: 0%;
+    /* Выравнивание по левому краю */
+    padding-left: 20%;
+    z-index: 2;
+}
+
+.first-screen__photo {
+    position: absolute;
+    /* Позиционируем заголовок поверх изображения */
+    top: 55%;
+    /* Размещаем по вертикали (вы можете настроить значение) */
+    padding-left: 55%;
+    transform: translateY(-50%);
+    /* Центрируем по вертикали */
+    z-index: 2;
+    width: 100%;
+    height: auto;
+
+
+}
+
+.first-screen__sub-heading {
+
+    color: white;
+    font-size: 20px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+}
+
+
+.first-screen__sub-list {
+    margin-bottom: 8%;
+    /* Отступ между пунктами */
+    list-style: none;
+    font-size: 14px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+.first-screen__sub-item {
+    margin-bottom: 5%;
+    /* Отступ между пунктами */
+    font-size: 14px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+
+}
+
+.carousel-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    opacity: 0%;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.carousel-images img.active {
+    opacity: 1;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.reviews-section {
+    padding: 10% 10%;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.reviews-title {
+    margin-bottom: 5%;
+    font-size: 24px;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+}
+
+.reviews-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.reviews-list {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.review-card {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 5%;
+}
+
+.review-card:last-child {
+
+    margin-right: 0%;
+}
+
+.review-card .review-name {
+    margin-top: 10%;
+    font-size: 18px;
+    font-family: 'GraphikLCG-Bold', sans-serif;
+}
+
+.review-card .review-comment {
+    padding: 0 15% 0 15%;
+    font-size: 14px;
+    margin-top: 15%;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    color: #555;
+    margin-bottom: 15%;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.carousel-button-left {
+    left: 0px;
+}
+
+.carousel-button-right {
+    right: 0px;
+}
+
+.add-review-btn {
+    margin-top: 5%;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-review-btn:hover {
+    background-color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .reviews-title {
+        font-size: 20px;
+    }
+
+    .review-card {
+        width: 100%;
+    }
+}
+
+.main-footer {
+    width: 100%;
+    padding: 0%;
+    background-color: #fff;
+}
+
+/* Верхняя часть футера с логотипом и меню */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8% 0%;
+}
+
+.footer-logo {
+    width: 30%;
+    margin-left: 17%;
+}
+
+.footer-main-menu {
+    display: flex;
+    list-style: none;
+    margin: 0%;
+    padding: 0%;
+    margin-right: 20%;
+    align-items: left;
+}
+
+.footer-main-menu__item {
+    margin: 0 7%;
+}
+
+.footer-main-menu__item:last-child {
+    margin-right: 0%;
+}
+
+.footer-main-menu__link {
+    text-decoration: none;
+    color: #333;
+    font-family: 'GraphikLCG-Semibold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 0%;
+}
+
+.footer-text {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    margin-left: 16.9%;
+}

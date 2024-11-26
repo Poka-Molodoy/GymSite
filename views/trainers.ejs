@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Фитнес-клуб SportArea</title>
+	<meta name="description" content="Поменяйте описание">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="/css/trainers_style.css">
+</head>
+
+<body>
+  <aside class="left-bar">
+    <div class="left-bar__logo">
+      <a href="index.html">
+        <img src="images/dist/logo.svg" alt="Изображение тренажерного зала SportArea" class="logo__img">
+      </a>
+    </div>
+    <button class="button-call">ПОЗВОНИТЬ НАМ</button>
+  </aside>
+
+  <%- include('partials/header') %>
+
+  <section class ="first-screen">
+    <img src="images/dist/first-screen_background/Background_trainers.jpg" alt="" class="first-screen-bg">
+    <div class="first-screen__breadcrumbs">
+      <hi class ="first-screen__breadcrumbs__item">Главная  /  Контакты</h1>
+    </div>
+    <div class="overlay"></div>
+    <h1 class="first-screen__heading">ТРЕНЕРЫ SPORTAREA</h1>
+    <ul class="first-screen__list">
+        Наш главный актив — это профессиональные тренеры, которые 
+        максимально точно подберут для вас программу тренировок с 
+        учетом вашего графика, а также физической подготовки.
+    </ul>
+  </section>
+
+  <section class ="category">
+    <h2 class ="category__heading">Тренеры по физической подготовке</h2>
+    <ul class ="category__list">
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Krasilnikov.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Красильников Мирослав Андреевич</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- Мастер спорта</li>
+          <li class ="category__sub-item">- Тренерский опыт 8 лет</li>
+          <li class ="category__sub-item">- Чемпион по армрестлингу</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Avdeeva.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Авдеева Евгения Алексеевна</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- Мастер спорта по боксу</li>
+          <li class ="category__sub-item">- Тренерский опыт 5 лет</li>
+          <li class ="category__sub-item">- Поможет добиться рельефа</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Makarova.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Макарова Диана Федоровна</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- КМС по легкой атлетике</li>
+          <li class ="category__sub-item">- Подберет план питания</li>
+          <li class ="category__sub-item">- Поможет похудеть с легкостью</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Belov.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Белов Антон Львович</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- КМС по тяжелой атлетике</li>
+          <li class ="category__sub-item">- Подберет по бодибилдингу</li>
+          <li class ="category__sub-item">- Поможет нарастить мышцы</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3 class ="category__heading">Тренеры по водным видам спорта</h3>
+    <ul class ="category__list">
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Rodionov.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Родионов Тимофей Денисович</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- Мастер спорта по плаванию</li>
+          <li class ="category__sub-item">- Тренерский опыт 3 года</li>
+          <li class ="category__sub-item">- Поможет прокачать выносливость</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Nekrasova.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Некрасова Ульяна Гордеевна</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- Мастер спорта по синх. плаванию</li>
+          <li class ="category__sub-item">- Тренерский опыт 4 года</li>
+          <li class ="category__sub-item">- Научит держаться на воде</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Anisimov.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Анисимов Кирилл Васильевич</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- КМС по плаванию</li>
+          <li class ="category__sub-item">- Тренерский опыт 1 год</li>
+          <li class ="category__sub-item">- Научит плавать детей</li>
+        </ul>
+      </li>
+      <li class ="category__item">
+        <img src="images/dist/trainers/trainers_Belyaeva.jpg" alt="" class="category__img">
+        <h3 class ="category__sub-heading">Беляева Ксения Михайловна</h3>
+        <ul class ="category__sub-list">
+          <li class ="category__sub-item">- КМС по плаванию</li>
+          <li class ="category__sub-item">- Тренерский опыт 6 год</li>
+          <li class ="category__sub-item">- Научит плавать детей</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  
+</body>
