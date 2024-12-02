@@ -3,3 +3,22 @@
 Мета для политики
 
  nonce="<%= nonce %>" в скрипт для политики
+
+                    <!-- Отзыв 1 -->
+                    <div class="review-card">
+                        <div class="review-name">Иван Иванов</div>
+                        <div class="review-comment">Очень хороший фитнес-клуб, тренировки всегда интересные и результат
+                            виден уже через пару недель.</div>
+                    </div>
+                    <!-- Отзыв 2 -->
+                    <div class="review-card">
+                        <div class="review-name">Мария Петрова</div>
+                        <div class="review-comment">Профессиональные тренеры и отличные условия для занятий. Всем
+                            рекомендую!</div>
+                    </div>
+                    <!-- Отзыв 3 -->
+                    <div class="review-card">
+                        <div class="review-name">Алексей Смирнов</div>
+                        <div class="review-comment">Клуб имеет отличное оборудование и очень дружественную атмосферу. Я
+                            доволен результатами.</div>
+                    </div>

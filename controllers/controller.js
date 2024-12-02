@@ -25,8 +25,9 @@ const getTrainersPage = async (req, res) => {
 
 const getContactsPage = async (req, res) => {
     try {
+      const feedbacks = await feedbackModel.getAllFeedbacks();
       const nonce = crypto.randomBytes(16).toString('hex');
-      res.render('contacts', { nonce });
+      res.render('contacts', { nonce, feedbacks });
     } catch (error) {
       console.error(error);
       res.status(500).send('Ошибка сервера');
