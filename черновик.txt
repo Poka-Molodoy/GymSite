@@ -1,0 +1,5 @@
+<metequiv="Content-Security-Policy"
+    tent="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
+Мета для политики
+
+ nonce="<%= nonce %>" в скрипт для политики

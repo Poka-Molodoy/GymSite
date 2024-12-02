@@ -6,7 +6,6 @@
     <title>Фитнес-клуб SportArea</title>
     <meta name="description" content="Поменяйте описание">
     <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="/css/contacts_style.css">
     <link rel="stylesheet" href="/css/footer_style.css">
@@ -17,6 +16,8 @@
     <%- include('partials/left_bar') %>
 
     <%- include('partials/header') %>
+
+    <%- include('partials/create_feedback') %>
 
         <section class="first-screen">
             <div class="carousel-images">
@@ -61,7 +62,7 @@
                 </li>
         </section>
 
-        <script nonce="<%= nonce %>">
+        <script>
             let currentIndex = 0;
             const images = document.querySelectorAll('.carousel-images img');
             const totalImages = images.length;
@@ -107,10 +108,10 @@
             </div>
 
             <!-- Кнопка для добавления отзыва -->
-            <button class="add-review-btn" id="openModalBtn">Добавить отзыв</button>
+            <button class="add-review-btn" id="openModalBtn1">Добавить отзыв</button>
         </div>
 
-        <script nonce="<%= nonce %>">
+        <script>
             // Инициализация переменных для управления каруселью
             let currentIndexC = 0;
             const reviews = document.querySelector('.reviews-list');

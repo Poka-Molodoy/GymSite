@@ -6,8 +6,6 @@
     <title>Фитнес-клуб SportArea</title>
     <meta name="description" content="Поменяйте описание">
     <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; script-src 'self' 'nonce-<%= nonce %>' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:3100 https://example.com; img-src 'self' data:;">
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/footer_style.css">
@@ -35,7 +33,7 @@
                 <a href="#" class="button-detail">Подробнее</a>
             </section>
 
-            <script nonce="<%= nonce %>">
+            <script>
                 let currentIndex = 0;
                 const images = document.querySelectorAll('.carousel-images img');
                 const totalImages = images.length;
@@ -49,7 +47,7 @@
                 setInterval(switchImage, 4000); // Смена изображений каждые 3 секунды
             </script>
 
-            <script nonce="<%= nonce %>">
+            <script>
                 // Убедимся, что DOM загружен
                 document.addEventListener("DOMContentLoaded", function () {
                     const logoLink = document.getElementById('left-bar__logo-link');
