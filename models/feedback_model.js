@@ -14,7 +14,7 @@ const createFeedback = async (feedback) => {
 
 const getAllFeedbacks = async () => {
     const query = `
-      SELECT * FROM feedbacks;
+      SELECT * FROM feedbacks ORDER BY id DESC;
     `;
     const res = await pool.query(query);
     return res.rows;
