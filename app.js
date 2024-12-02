@@ -16,9 +16,14 @@ app.use(express.static(path.join(__dirname, 'app')));
 app.use(express.urlencoded({ extended: true }));
 
 // Подключение маршрутов
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/trainers', trainersRouter);
 app.use('/contacts', contactsRouter);
+
+// Маршрут для главной страницы
+app.get('/', (req, res) => {
+  res.render('index'); // Рендерим шаблон index.ejs
+});
 
 app.listen(port, () => {
   console.log(`Сервер запущен на http://localhost:${port}`);

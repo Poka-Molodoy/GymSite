@@ -12,12 +12,12 @@
         <div class="callback-popup__content">
             <button id="closeForm1" class="callback-popup__close">&times;</button>
             <h3>Оставьте отзыв, обязательно напишите кто ваш тренер, ему будет приятно</h3>
-            <form id="callbackFormContent1" class="callback-form" action="/" method="post">
+            <form id="callbackFormContent1" class="callback-form" action="/contacts/feedback" method="post">
                 <label for="fio">Ваше ФИО:</label>
-                <input type="text" id="fio" name="fio" required>
+                <input type="text" id="fio" name="client_fio" required>
 
                 <label for="phone">ФИО тренера:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="coach_fio" required>
 
                 <label for="comment">Комментарий:</label>
                 <textarea id="comment" name="comment" rows="4"></textarea>
