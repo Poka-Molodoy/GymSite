@@ -133,87 +133,47 @@ body {
 
 
 
-.first-screen {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
 
-.first-screen-bg {
-    width: 100%;
-    height: auto;
-}
 
-.first-screen__breadcrumbs {
-    position: absolute;
-    /* Позиционируем заголовок поверх изображения */
-    top: 25%;
-    /* Размещаем по вертикали (вы можете настроить значение) */
-    left: 45%;
-    /* Выравнивание по левому краю */
-    z-index: 2;
-    width: 100%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-family: 'GraphikLCG-Regular', sans-serif;
-    color: white;
 
-}
 
 .first-screen__heading {
     position: absolute;
     /* Позиционируем заголовок поверх изображения */
-    top: 30%;
-    /* Размещаем по вертикали (вы можете настроить значение) */
-    transform: translateY(-50%);
-    /* Центрируем по вертикали */
-    left: 50%;
-    /* Центрируем по горизонтали */
-    transform: translateX(-50%) translateY(-50%);
-    /* Центрируем по горизонтали и вертикали */
+    top: 25%;
+    padding-left: 16.5%;
     color: white;
     z-index: 2;
-    font-size: 48px;
-    letter-spacing: 1px;
+    width: 50%;
+    font-size: 65px;
+    letter-spacing: 5px;
     font-family: 'GraphikLCG-Medium', sans-serif;
 }
 
 .first-screen__list {
     position: absolute;
     /* Позиционируем список поверх изображения */
-    top: 42%;
+    top: 55%;
     /* Размещаем ниже заголовка, вы можете настроить */
-    padding-left: 30%;
-    /* Центрируем по горизонтали */
-    padding-right: 30%;
-    text-align: center;
+    left: 0%;
+    /* Выравнивание по левому краю */
+    padding-left: 18%;
+    /* Немного отступа слева */
     color: white;
     z-index: 2;
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'GraphikLCG-Regular', sans-serif;
 }
 
 .first-screen__item {
-    margin-bottom: 4%;
+    margin-bottom: 5%;
     /* Отступ между пунктами */
-}
-
-.overlay {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 67%;
-    background-color: rgba(40, 40, 40, 0.75);
-    pointer-events: none;
-    z-index: 1;
 }
 
 /* Основные стили */
 .category__heading {
     margin: 0% auto 4%;
-    margin-left: 17%;
+    margin-left: 15%;
     color: #333;
     font-size: 20px;
     font-family: 'GraphikLCG-Medium', sans-serif;
@@ -224,47 +184,40 @@ body {
     display: block;
     height: 1px;
     background-color: #333;
-    margin: 0px auto 30px;
-    margin-right: 250px;
+    margin: 10% auto 3%;
+    margin-right: 15%;
 }
 
 .category__heading::after {
     content: '';
     display: block;
     position: absolute;
-    right: 250px;
+    right: 13%;
     width: 10px;
     height: 10px;
-    margin-top: -15px;
+    margin-top: -20px;
     background-color: #333;
 }
 
 .category__list {
     display: flex;
+    gap: 2.2%;
+    list-style: none;
+    padding: 0%;
     flex-wrap: wrap;
     /* Разрешаем перенос на новую строку */
-    gap: 1.5%;
-    /* Минимальный отступ между картинками */
-    padding: 0%;
-    list-style: none;
-    margin-left: 17%;
-    /* Отступ слева для центрирования */
-    margin-right: 17%;
-    /* Отступ справа */
-    text-align: center;
+    margin-left: 15%;
+    font-family: 'GraphikLCG-Regular', sans-serif;
+    color: #333;
 }
 
 .category__item {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 0%;
-    /* Убираем все внешние отступы */
-    padding: 0%;
-    /* Убираем все внутренние отступы */
     width: 100%;
     /* Элементы будут занимать 100% ширины родительского контейнера */
-    max-width: 23.87%;
+    max-width: 26.8%;
     /* Ограничение максимальной ширины элемента */
     flex-grow: 1;
     /* Элементы могут расширяться */
@@ -279,11 +232,6 @@ body {
     object-fit: cover;
     /* Картинка будет масштабироваться, сохраняя пропорции */
     transition: filter 0.3s ease, transform 0.3s ease;
-    /* Плавное изменение яркости и масштаба */
-    margin: 0%;
-    /* Убираем все отступы у картинок */
-    padding: 0%;
-    /* Убираем все внутренние отступы у картинок */
 }
 
 /* Темнение картинки при наведении */
@@ -295,7 +243,7 @@ body {
 /* Стили для списка */
 .category__sub-list {
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* Центрируем по обеим осям */
@@ -323,17 +271,18 @@ body {
 
 /* Появление каждого элемента списка по очереди */
 .category__sub-item {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     font-family: 'GraphikLCG-Regular', sans-serif;
     margin: 0%;
-    margin-bottom: 7%;
+    margin-bottom: 10%;
     opacity: 0;
     /* По умолчанию скрываем элементы списка */
     transition: opacity 0.3s ease-in-out;
     /* Выравнивание текста по левому краю */
-
-
+    text-align: left;
+    padding-left: 2.2%;
+    /* Добавляем немного отступа для текста */
 }
 
 /* Элементы списка появляются по очереди */
@@ -357,63 +306,441 @@ body {
     color: #333;
     font-size: 16px;
     font-family: 'GraphikLCG-Regular', sans-serif;
+    margin-bottom: 3.3%;
     text-align: center;
-    width: 90%;
-    margin-left: 5%;
-    justify-content: center;
-    margin-bottom: 30%;
 }
 
-/* Медиазапросы для адаптации на разных экранах */
 @media (max-width: 1024px) {
-    .category__list {
-        flex-direction: row;
-        /* Элементы остаются в строку */
+    
+    .main-menu {
+
+        margin-left: 20%;
     }
 
-    .category__item {
-        max-width: 300px;
-        /* Ограничение ширины элементов на экранах до 1024px */
-    }
-}
 
-@media (max-width: 768px) {
+    .first-screen__heading {
+        top: 23%; /* Опускаем заголовок ниже для лучшего расположения */
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); /* Центрируем по горизонтали */
+        width: 80%; /* Даем больше ширины */
+        font-size: 55px; /* Уменьшаем размер текста */
+        letter-spacing: 3px; /* Уменьшаем межбуквенный интервал */
+    }
+
+    .first-screen__list {
+        top: 40%; /* Опускаем список ниже */
+        left: 60%;
+        transform: translateX(-50%); /* Центрируем список */
+        padding-left: 0;
+        font-size: 17px; /* Уменьшаем размер шрифта */
+        width: 80%; /* Даем больше ширины */
+    }
+    .first-screen__item {
+        margin-bottom: 3%;
+    }
+    .about {
+        padding: 0% 15% 0% 15%;
+    }
+    
+    .about__heading {
+        font-size: 30px;
+        margin-left: 0%;
+        margin-top: -10%;
+        align-items: center;
+        text-align: center;
+        font-family: 'GraphikLCG-Bold', sans-serif;
+        color: #333;
+    }
+    
+    .about__lead {
+        margin-left: 0;
+        margin-top: 10%;
+        margin-bottom: 4%;
+        font-size: 20px;
+        align-items: center;
+        text-align: center;
+        font-family: 'GraphikLCG-SemiBold', sans-serif;
+        color: #333;
+    }
+    
+    .about__paragraph {
+        margin-left: 0;
+        font-size: 20px;
+        margin-top: 10%;
+        text-align: center;
+        font-family: 'GraphikLCG-Regular', sans-serif;
+        color: #333;
+
+    }
+
+    .category__heading {
+        margin: 0% auto 4%;
+        margin-left: 17%;
+        color: #333;
+        font-size: 25px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+    
+    .category__heading::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: #333;
+        margin: 80px auto 30px;
+        margin-right: 10%;
+    }
+    
+    .category__heading::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 10%;
+        width: 15px;
+        height: 15px;
+        margin-top: -20px;
+        background-color: #333;
+    }
     .category__list {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0%;
+        
         /* Ставим элементы списка в столбик на экранах до 768px */
-        margin-left: 0;
-        /* Убираем отступ слева */
+        
     }
 
     .category__item {
-        max-width: 100%;
-        /* На маленьких экранах элементы могут занимать всю ширину */
+
+        max-width: 550px;
+        text-align: left;
+
+    }
+    .category__sub-heading{
+        color: #333;
+        font-size: 20px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+        margin-bottom: 5%;
+    }
+    .category__sub-item {
+        font-size: 30px;
+        
     }
 
-    .category__heading {
-        margin-left: 0;
-        /* Убираем отступ слева для заголовков */
-    }
+    
 
-    .category__img {
-        height: 200px;
-        /* Ограничиваем высоту изображений для маленьких экранов */
-    }
+
+
+    
+
 }
 
-@media (max-width: 480px) {
+@media (max-width: 800px) {
+    
+
+
+    .main-menu {
+
+        margin-left: 20%;
+    }
+
+    .first-screen__heading {
+        top: 18%; /* Опускаем заголовок ниже для лучшего расположения */
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); /* Центрируем по горизонтали */
+        width: 80%; /* Даем больше ширины */
+        font-size: 42px; /* Уменьшаем размер текста */
+        letter-spacing: 3px; /* Уменьшаем межбуквенный интервал */
+    }
+
+    .first-screen__list {
+        top: 35%; /* Опускаем список ниже */
+        left: 60%;
+        transform: translateX(-50%); /* Центрируем список */
+        padding-left: 0;
+        font-size: 15px; /* Уменьшаем размер шрифта */
+        width: 80%; /* Даем больше ширины */
+    }
+
+
+    .first-screen__item {
+        margin-bottom: 3%;
+    }
+
+
+
+    .carousel-images {
+        display: block; /* Убираем флекс-контейнер для карусели */
+    }
+
+    .carousel-images img {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+    }
+    
+ 
     .category__heading {
+        margin: 0% auto 4%;
+        margin-left: 17%;
+        color: #333;
+        font-size: 23px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+    
+    .category__heading::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: #333;
+        margin: 50px auto 30px;
+        margin-right: 10%;
+    }
+    
+    .category__heading::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 10%;
+        width: 12px;
+        height: 12px;
+        margin-top: -20px;
+        background-color: #333;
+    }
+    .category__list {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0%;
+        
+        /* Ставим элементы списка в столбик на экранах до 768px */
+        
+    }
+
+    .category__item {
+
+        max-width: 425px;
+        text-align: left;
+
+    }
+    .category__sub-heading{
+        color: #333;
         font-size: 18px;
-        /* Уменьшаем размер шрифта заголовков на маленьких экранах */
+        font-family: 'GraphikLCG-Medium', sans-serif;
+        margin-bottom: 8%;
     }
-
     .category__sub-item {
-        font-size: 14px;
-        /* Уменьшаем размер шрифта пунктов списка */
+        font-size: 20px;
+        
     }
 
-    .category__img {
-        height: 180px;
-        /* Дополнительное уменьшение высоты картинок на смартфонах */
+
+
+
+
+
+
+}
+@media (max-width: 650px) {
+    
+
+    .main-menu__soc-links{
+        display: none;
     }
+    .main-menu {
+
+        margin-left: 20%;
+        padding: 15px 0px 15px 0px;
+    }
+
+    .first-screen__heading {
+        top: 17%; /* Опускаем заголовок ниже для лучшего расположения */
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); /* Центрируем по горизонтали */
+        width: 80%; /* Даем больше ширины */
+        font-size: 35px; /* Уменьшаем размер текста */
+        letter-spacing: 3px; /* Уменьшаем межбуквенный интервал */
+    }
+
+    .first-screen__list {
+        top: 30%; /* Опускаем список ниже */
+        left: 60%;
+        transform: translateX(-50%); /* Центрируем список */
+        padding-left: 0;
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        width: 80%; /* Даем больше ширины */
+    }
+
+    .first-screen__item {
+        margin-bottom: 3%;
+    }
+
+
+
+    .carousel-images {
+        display: block; /* Убираем флекс-контейнер для карусели */
+    }
+
+    .carousel-images img {
+        width: 100%;
+        height: 60hv;
+        opacity: 1;
+    }
+    .category__heading {
+        margin: 0% auto 4%;
+        margin-left: 17%;
+        color: #333;
+        font-size: 18px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+    
+    .category__heading::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: #333;
+        margin: 50px auto 30px;
+        margin-right: 10%;
+    }
+    
+    .category__heading::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 10%;
+        width: 11px;
+        height: 11px;
+        margin-top: -20px;
+        background-color: #333;
+    }
+    .category__list {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0%;
+        
+        /* Ставим элементы списка в столбик на экранах до 768px */
+        
+    }
+
+    .category__item {
+
+        max-width: 325px;
+        text-align: left;
+
+    }
+    .category__sub-heading{
+        color: #333;
+        font-size: 15px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+        margin-bottom: 5%;
+    }
+    .category__sub-item {
+        font-size: 15px;
+        
+    }
+
+
+    
+
+
+
+
+}
+@media (max-width: 550px) {
+    
+
+    .main-menu__soc-links{
+        display: none;
+    }
+    .left-bar{
+        left: 85%;
+        width: 15%;
+    }
+    .main-menu {
+        align-items: right;
+        margin-left: 20%;
+        padding: 15px 0px 15px 0px;
+    }
+
+
+    .first-screen__heading {
+        top: 14%; /* Опускаем заголовок ниже для лучшего расположения */
+        left: 40%;
+        transform: translateX(-50%) translateY(-50%); /* Центрируем по горизонтали */
+        width: 80%; /* Даем больше ширины */
+        font-size: 30px; /* Уменьшаем размер текста */
+        letter-spacing: 3px; /* Уменьшаем межбуквенный интервал */
+    }
+
+    .first-screen__list {
+        top: 23%; /* Опускаем список ниже */
+        left: 50%;
+        transform: translateX(-50%); /* Центрируем список */
+        padding-left: 0;
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        width: 80%; /* Даем больше ширины */
+    }
+
+
+    .first-screen__item {
+        margin-bottom: 3%;
+    }
+
+
+
+
+    .category__heading {
+        margin: 0% auto 4%;
+        margin-left: 17%;
+        color: #333;
+        font-size: 16px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+    }
+    
+    .category__heading::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: #333;
+        margin: 30px auto 30px;
+        margin-right: 20%;
+    }
+    
+    .category__heading::after {
+        display: none;
+    }
+    .category__list {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0%;
+        
+        /* Ставим элементы списка в столбик на экранах до 768px */
+        
+    }
+
+    .category__item {
+
+        max-width: 270px;
+        text-align: left;
+
+    }
+    .category__sub-heading{
+        color: #333;
+        font-size: 15px;
+        font-family: 'GraphikLCG-Medium', sans-serif;
+        margin-bottom: 5%;
+    }
+    .category__sub-item {
+        font-size: 15px;
+        
+    }
+
+    
+    
+
+
+
+
 }

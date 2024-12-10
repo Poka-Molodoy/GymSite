@@ -13,7 +13,7 @@
 }
 
 .footer-logo {
-    width: 30%;
+    width: 100%;
     margin-left: 17%;
 }
 
@@ -59,4 +59,34 @@
 
 .form-container {
     pointer-events: auto;
+}
+
+@media (max-width: 650px) {
+    
+    .footer-main-menu{
+        display: none;
+    }
+    .footer-logo{
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+    }
+
+}
+@media (max-width: 550px) {
+    
+
+.footer-main-menu{
+    display: none;
+}
+.footer-logo{
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+}
+    
+
+
+
+
 }

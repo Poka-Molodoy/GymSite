@@ -12,7 +12,7 @@ CREATE TABLE feedbacks (
     coach_full_name VARCHAR(255) NOT NULL,
     comment TEXT
 );
-
+Ы
 INSERT INTO call_requests (full_name, phone, comment) VALUES
 ('Иван Иванов Федотович', '+79991234567', 'Хочу узнать подробнее о ваших услугах.'),
 ('Анна Петрова Ярополкович', '+79997654321', 'Просьба перезвонить после 18:00.'),
